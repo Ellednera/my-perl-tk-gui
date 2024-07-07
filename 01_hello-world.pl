@@ -11,7 +11,7 @@ my $window = MainWindow->new;
 $window->title( "Hello world!" );
 $window->Button( 
     -text => "Close",
-    -command => \&close
+    -command => \&close,
 )->pack;
 
 MainLoop;
