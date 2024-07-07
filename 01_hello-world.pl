@@ -9,10 +9,18 @@ use Tk;
 my $window = MainWindow->new;
 
 $window->title( "Hello world!" );
+
+$window->Button(
+    -text => "Greet",
+    -command => sub { say "Hello, nice to meet you :)" },
+)->pack;
+
 $window->Button( 
     -text => "Close",
     -command => \&close,
 )->pack;
+
+
 
 MainLoop;
 
