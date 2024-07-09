@@ -42,7 +42,8 @@ $nice_window->Checkbutton( -text => "Chocolate" )->pack(
 $nice_window->Checkbutton( -text => "Strawberries" )->pack(
                   -side => "left", -expand => 1
               );
-              
+
+# button not packed at the bottom
 $nice_window->Button( 
     -text => "Exit",
     -command => sub { exit }
