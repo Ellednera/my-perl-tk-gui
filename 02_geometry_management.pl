@@ -28,24 +28,29 @@ $nice_window->title( "Nice Window" );
 $nice_window->Label( -text => "List of Ingredients" )->pack;
 
 $nice_window->Checkbutton( -text => "Eggs" )->pack( 
-                  -side => "left", -expand => 1
+                  -side => "left",
               );
 $nice_window->Checkbutton( -text => "Flour" )->pack( 
-                  -side => "left", -expand => 1
+                  -side => "left",
               );
 $nice_window->Checkbutton( -text => "Sugar" )->pack(
-                  -side => "left", expand => 1
+                  -side => "left",
               );
 $nice_window->Checkbutton( -text => "Chocolate" )->pack(
-                  -side => "left", expand => 1
+                  -side => "left",
               );
-$nice_window->Chechbutton( -text => "Strawberries" )->pack(
-                  -side => "left", expand => 1
+$nice_window->Checkbutton( -text => "Strawberries" )->pack(
+                  -side => "left", -expand => 1
               );
+              
 $nice_window->Button( 
     -text => "Exit",
     -command => sub { exit }
-)->pack;
+)->pack(
+    -side => "bottom",
+    -expand => 1,
+    -fill => "x"
+);
 
 MainLoop;
 # besiyata d'shmaya
