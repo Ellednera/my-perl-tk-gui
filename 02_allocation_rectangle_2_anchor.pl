@@ -35,7 +35,7 @@ $window->Button(
 $window->Button( 
              -text => "EXIT", -command => sub {exit} 
          )->pack( 
-             -anchor => "c", -expand => 1, -fill => "both",
+             -anchor => "center", -expand => 1, -fill => "both",
              -ipadx => 50, -ipady => 50
          );
 
