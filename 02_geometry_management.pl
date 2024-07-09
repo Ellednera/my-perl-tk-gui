@@ -23,5 +23,32 @@ $bad_window->Button(
     -command => sub { exit },
 )->pack;
 
+# a nicer window
+$nice_window->title( "Nice Window" );
+$nice_window->Label( -text => "List of Ingredients" )->pack;
+
+$nice_window->Checkbutton( -text => "Eggs" )->pack( 
+                  -side => "left", -expand => 1
+              );
+$nice_window->Checkbutton( -text => "Flour" )->pack( 
+                  -side => "left", -expand => 1
+              );
+$nice_window->Checkbutton( -text => "Sugar" )->pack(
+                  -side => "left", expand => 1
+              );
+$nice_window->Checkbutton( -text => "Chocolate" )->pack(
+                  -side => "left", expand => 1
+              );
+$nice_window->Chechbutton( -text => "Strawberries" )->pack(
+                  -side => "left", expand => 1
+              );
+$nice_window->Button( 
+    -text => "Exit",
+    -command => sub { exit }
+)->pack;
+
 MainLoop;
 # besiyata d'shmaya
+
+
+
