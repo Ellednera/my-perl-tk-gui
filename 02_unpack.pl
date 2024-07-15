@@ -2,6 +2,7 @@
 
 use strict;
 use warnings;
+use 5.010;
 
 use Tk;
 
@@ -29,6 +30,15 @@ my $exit_btn = $window->Button(
                    -expand => 1,
                );
 
+$window->Button( 
+             -text => "Widgets Info", 
+             -command => \&print_widget_info 
+         )->pack(
+             -before => $exit_btn,
+             -fill => "both",
+             -expand => 1,
+         );
+
 MainLoop;
 ########################################################
 sub unpack_button {
@@ -42,6 +52,13 @@ sub pack_button {
     $unpack_btn->pack( -before => $exit_btn, -fill => "both", -expand => 1 );
     $packing_msg = "Unpack this new button!";
     $pack_button->packForget;
+}
+
+sub print_widget_info {
+    my @widgets_info = $window->packSlaves();
+    for ( @widgets_info ) {
+        say $_, "\n\t", $_->packInfo, "\n";
+    }
 }
 
 # besiyata d'shmaya
