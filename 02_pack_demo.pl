@@ -6,7 +6,7 @@ use warnings;
 use Tk;
 use Tk::BrowseEntry;
 
-my $total_widgets = 3;
+my $total_widgets = 10;
 
 my $window = MainWindow->new( -title => "Demo for 'Pack'" );
 
@@ -18,16 +18,17 @@ my $frame = $window->Frame(
                 -fill => "x",
             );
 
-#$frame->BrowseEntry();
 
-my @values; # as placeholders
+my @values; # functions as placeholders
 
 for ( 0..$total_widgets ) {
     $values[ $_ ] = "top";
     my $browse_entry = $frame->BrowseEntry(
                             -label => "Widget $_",
                             -choices => [ "left", "right", "top", "bottom" ],
-                            -autolimitheight => 1,
+                            -state => "readonly",
+                            #-autolimitheight => 1, # this is buggy
+                            -listheight => 4,
                             -variable => \$values[$_],
                             -browsecmd => \&repack,
                        )->pack();
@@ -38,6 +39,17 @@ $frame->Button(
     -command => \&repack,
 )->pack(
     -anchor => "center",
+    -fill => "x",
+    -expand => 1,
+);
+
+$frame->Button( 
+    -text => "Close", 
+    -command => sub { exit }
+)->pack( 
+    -anchor => "center",
+    -fill => "x",
+    -expand => 1
 );
 
 
