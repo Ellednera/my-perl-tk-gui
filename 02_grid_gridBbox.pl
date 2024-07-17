@@ -70,7 +70,7 @@ $window->Button(
 MainLoop;
 
 # say "Hello world"; # no output in console after MainLoop
-# so geomtery related functions will always give 0 if called before MainLoop
+# so geomtery related functions will always give 0 if directly called before MainLoop
 
 sub bounding_box_info {
     my ( $x_offset, $y_offset, $w, $h ) = $window->gridBbox(2, 2);
