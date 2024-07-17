@@ -50,6 +50,18 @@ $window->Button( -text => "\x{2705}" )->grid(
     -sticky => "se"
 );
 
+#print "$_\n" for $window->gridSize();
+{
+    my ($col, $row) = $window->gridSize();
+
+    for ( 0..( $col-1 ) ) {
+        $window->gridColumnconfigure( $_, -weight => 1 );
+    }
+
+    for ( 0..( $row-1 ) ) {
+        $window->gridRowconfigure( $_, -weight => 1 );
+    }
+}
 MainLoop;
 
 # besiyata d'shmaya
