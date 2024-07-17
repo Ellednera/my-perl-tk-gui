@@ -39,6 +39,17 @@ $window->Button( -text => "花朵" )->grid("-", "-",
     -sticky => "nsew"
 );
 
+$window->Button( -text => "\x{23F0}" )->grid( 
+    -row => 0, -column => 3, 
+    -sticky => "nsew"
+);
+
+# oops... :)
+$window->Button( -text => "\x{2705}" )->grid( 
+    -row => 0, -column => 4,
+    -sticky => "se"
+);
+
 MainLoop;
 
 # besiyata d'shmaya
