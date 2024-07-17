@@ -3,12 +3,13 @@
 use strict;
 use warnings;
 use utf8;
+use 5.010;
 
 use Tk;
 
 my $window = MainWindow->new;
 
-$window->Button( -text => "Button 1" )->grid(
+my $row_1 = $window->Button( -text => "Button 1" )->grid(
     $window->Button( -text => "Button 3" ),
     $window->Button( -text => "Button 5" ),
     "x",
@@ -61,6 +62,14 @@ $window->Button( -text => "\x{2705}" )->grid(
     for ( 0..( $row-1 ) ) {
         $window->gridRowconfigure( $_, -weight => 1 );
     }
+    
+    #say for $row_1->gridBbox();
+    #my ( $x_offset, $y_offset, $w, $h ) = $window->gridBbox(5, 3);
+    #say "Exit button";
+    #say "  x offset: ", $x_offset;
+    #say "  offset: ", $y_offset;
+    #say "  width: ", $w;
+    #say "  height: ", $h;
 }
 MainLoop;
 
