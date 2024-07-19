@@ -19,11 +19,12 @@ $window->Button(
 
 $window->Button( 
     -text => "Relative place"
-)->place( -relx => 0.5, -rely => 0.5, -anchor => "center" );
+)->place( -relx => 0.5, -rely => 0.5, -anchor => "center", -width => 150 );
 
+# resize the window to see -relwidth and -relheight in effect
 $window->Button( 
     -text => "-anchor => sw" 
-)->place( -x => 100, "-y" => 150, -anchor => "sw" );
+)->place( -x => 150, "-y" => 150, -anchor => "sw", -relwidth => 0.1, -relheight => 0.1 );
 
 MainLoop;
 # besiyata d'shmaya
