@@ -23,7 +23,8 @@ my $btn_bottom = $window->Button(
 );
 
 my $btn_bottom_2 = $window->Button(
-    -text => "Btm#2"
+    -text => "Exit",
+    -command => sub { exit }
 )->form(
 #    -left => "%60", # stretching doesn't seem to work with -left
     -right => [ "&", $btn_bottom ],
