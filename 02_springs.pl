@@ -50,7 +50,7 @@ $frame_2->Label( -text => "-bottom" )->grid(
 $frame_2->Label( -text => "-left" )->grid(
     $frame_2->Entry( -textvariable => \$left ), 
     
-    $frame_2->Label( -text => "-topspring" ),
+    $frame_2->Label( -text => "-leftspring" ),
     $frame_2->Entry( -textvariable => \$left_spring ),
     
     # configs
@@ -71,12 +71,14 @@ $frame_2->Label( -text => "-right" )->grid(
 ##################################################
 ### results for spring
 $frame_2->Button( 
-    -text => "Go",
+    -text => "Run",
     -command => \&re_form,
 )->grid(
-    "-", "-", "-",
+    "-", "-",
+    $frame_2->Button( -text => "Exit", -command => sub { exit } ),
     -pady => 10,
 );
+
 
 MainLoop;
 
@@ -130,7 +132,7 @@ sub re_form {
     ###
     # right
     if ( !$right ) {
-        $right = 0;
+        $right = 0
     }
     # rightspring
     if ( !$right_spring ) {
@@ -138,16 +140,18 @@ sub re_form {
     }
     push @configs, ( "-right", $right, "-rightspring", $right_spring);
     
-    
+    ############################
     print "-top => $top\t", "-topspring => $top_spring\n";
     print "-bottom => $bottom\t", "-bottomspring => $bottom_spring\n";
     print "-left => $left\t", "-leftspring => $left_spring\n";
     print "-right => $right\t", "-rightspring => $right_spring\n";
     print "########################################\n";
 
-    
+    # configure the "SPRING" button using the new input
+    $button_1->formForget();
+    $button_1->form( @configs );
+    print for @configs;
+    print "\n";
 }
-
-
 
 # besiyata d'shmaya
