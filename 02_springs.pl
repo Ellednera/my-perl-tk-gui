@@ -13,7 +13,9 @@ my $frame_1 = $window->Frame(
     -side => "bottom", -expand => 1, -fill => "both"
 );
 
-my $button_1 = $frame_1->Button( -text => "SPRING", -command => \&reForm )->form;
+my $button_1 = $frame_1->Button( 
+    -text => "SPRING", -command => \&re_form 
+)->form;
 
 ##################################################
 
@@ -76,11 +78,74 @@ $frame_2->Button(
     -pady => 10,
 );
 
-
 MainLoop;
 
 sub re_form {
+    my @configs = ();
+    # using a hash will not work, hash keys cannot be used as scalar ref
+    
+    #for ( keys %$config_items ) {
+    #    print $_, "=>", $config_items->{ $_ };
+    #    if ( $_ eq '' ) {
+    #        $config_items->{ $_ } = 0;
+    #    }
+    #    push @configs, ( $_, $config_items->{ $_ } );
+    #}
+
     #print $_ . "\n" for $frame_2->gridSize();
+
+    ###
+    # top
+    if ( !$top ) {
+        $top = 0;
+    }
+    # topspring
+    if ( !$top_spring ) {
+        $top_spring = 0;
+    }
+    push @configs, ( "-top", $top, "-topspring", $top_spring);
+    
+    ###
+    # bottom
+    if ( !$bottom ) {
+        $bottom = 0;
+    }
+    # bottomspring
+    if ( !$bottom_spring ) {
+        $bottom_spring = 0;
+    }
+    push @configs, ( "-bottom", $bottom, "-bottomspring", $bottom_spring);
+    
+    ###
+    # left
+    if ( !$left ) {
+        $left = 0;
+    }
+    # leftspring
+    if ( !$left_spring ) {
+        $left_spring = 0;
+    }
+    push @configs, ( "-left", $left, "-leftspring", $left_spring);
+    
+    ###
+    # right
+    if ( !$right ) {
+        $right = 0;
+    }
+    # rightspring
+    if ( !$right_spring ) {
+        $right_spring = 0;
+    }
+    push @configs, ( "-right", $right, "-rightspring", $right_spring);
+    
+    
+    print "-top => $top\t", "-topspring => $top_spring\n";
+    print "-bottom => $bottom\t", "-bottomspring => $bottom_spring\n";
+    print "-left => $left\t", "-leftspring => $left_spring\n";
+    print "-right => $right\t", "-rightspring => $right_spring\n";
+    print "########################################\n";
+
+    
 }
 
 
