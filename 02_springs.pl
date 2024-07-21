@@ -74,9 +74,12 @@ $frame_2->Button(
     -text => "Run",
     -command => \&re_form,
 )->grid(
-    "-", "-",
+    "-",
+    $frame_2->Button( -text => "Circular ref check", -command => \&circular_check ),
     $frame_2->Button( -text => "Exit", -command => sub { exit } ),
     -pady => 10,
+    -sticky => "news"
+    
 );
 
 
@@ -152,6 +155,17 @@ sub re_form {
     $button_1->form( @configs );
     print for @configs;
     print "\n";
+    print "########################################\n";
+    
+}
+
+sub circular_check {
+
+    if ($frame_2->formCheck ) {
+        print "Circular ref. found!!!\n";
+    } else {
+        print "Nice, no circular refs. found\n";
+    }
 }
 
 # besiyata d'shmaya
