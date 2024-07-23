@@ -10,6 +10,7 @@ my $font_family = "Courier";
 my $font_size = 12;
 my $font_weight = "normal";
 my $font_style = "roman";
+my $sample_text = "Lorem ipsum dolor sit amet...";
 
 my $underline = 0;
 my $overstrike = 0;
@@ -63,6 +64,13 @@ $frame->Checkbutton(
     -variable => \$overstrike,
     -command => \&apply_font
 )->pack( -side => "left" );
+
+# sample text
+my $text_display = $window->Entry( 
+    -textvariable => \$sample_text 
+)->pack( -fill => "both", -expand => 1 );
+
+#apply_font();
 
 MainLoop;
 
