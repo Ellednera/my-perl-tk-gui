@@ -3,6 +3,8 @@
 use strict;
 use warnings;
 
+use Data::Dumper;
+
 use Tk;
 use Tk::BrowseEntry;
 
@@ -68,14 +70,30 @@ $frame->Checkbutton(
 # sample text
 my $text_display = $window->Entry( 
     -textvariable => \$sample_text 
-)->pack( -fill => "both", -expand => 1 );
+)->pack( -fill => "x");
 
-#apply_font();
+apply_font();
 
 MainLoop;
 
 sub apply_font {
-    ...
+    #print "something is clicked\n";
+
+    #print $_ for $text_display->configure( "-font" );
+    #print $font_family, "\n";
+    #print $font_size, "\n";
+    
+    # this part is not really working, documentation missing too
+    $text_display->configure(
+        -font => [
+            -family => $font_family,
+            -size => $font_size,
+            -weight => $font_weight,
+            -slant => $font_style,
+            -underline => $underline,
+            -overstrike => $overstrike
+        ]
+    );
 }
 
 # besiyata d'shmaya
