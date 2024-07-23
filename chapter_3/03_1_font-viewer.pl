@@ -48,7 +48,7 @@ $frame->Checkbutton(
 
 # font style
 $frame->Checkbutton(
-    -onvalue => "italic", -offvalue => "roman",
+    -onvalue => "i", -offvalue => "r",
     -text => "Slant", -variable => \$font_style,
     -command => \&apply_font
 )->pack( -side => "left" );
@@ -83,16 +83,15 @@ sub apply_font {
     #print $font_family, "\n";
     #print $font_size, "\n";
     
+    # XLFD notation works, but no underline and overstrike 
     # this part is not really working, documentation missing too
     $text_display->configure(
-        -font => [
-            -family => $font_family,
-            -size => $font_size,
-            -weight => $font_weight,
-            -slant => $font_style,
-            -underline => $underline,
-            -overstrike => $overstrike
-        ]
+        #-font => [
+        #    -slant => $font_style,
+        #    -underline => $underline,
+        #    -overstrike => $overstrike
+        #]
+        -font => "*-$font_family-$font_weight-$font_style-*-*-$font_size-*-*-*-*-*-*-*"
     );
 }
 
