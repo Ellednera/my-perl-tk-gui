@@ -11,6 +11,9 @@ my $font_size = 12;
 my $font_weight = "normal";
 my $font_style = "roman";
 
+my $underline = 0;
+my $overstrike = 0;
+
 my $window = MainWindow->new( -title => "Font Viewer" );
 my $frame = $window->Frame->pack( -side => "top" );
 
@@ -44,6 +47,20 @@ $frame->Checkbutton(
 $frame->Checkbutton(
     -onvalue => "italic", -offvalue => "roman",
     -text => "Slant", -variable => \$font_style,
+    -command => \&apply_font
+)->pack( -side => "left" );
+
+# underline
+$frame->Checkbutton(
+    -text => "Underline",
+    -variable => \$underline,
+    -command => \&apply_font
+)->pack( -side => "left" );
+
+# overstrike
+$frame->Checkbutton(
+    -text => "Overstrike",
+    -variable => \$overstrike,
     -command => \&apply_font
 )->pack( -side => "left" );
 
