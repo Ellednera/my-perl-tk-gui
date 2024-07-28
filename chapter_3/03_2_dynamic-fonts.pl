@@ -43,9 +43,18 @@ sub show_font {
     # create a tag name, will be used later on
     $text->tagConfigure( "number", -font => [ "FreeSerif", "12" ] );
     $text->tagConfigure( "selected-font", -font => [ $name, "20" ] );
-    $text->insert( "end", "abcdefghijklmnopqrstuvwxyzABCDEFG...", "selected-font" );
+    $text->insert( "end", "abcdefghijklmnopqrstuvwxyzABCDEFG...\n", "selected-font" );
     
-    
+    # font size
+    for ( 12, 14, 16, 18, 20, 22, 24, 26 ) {
+        $text->tagConfigure( "$name$_", -font => [ "selected-font", $_ ] );
+        $text->insert( "end", "$_ ", "$name$_" );
+        $text->insert( 
+            "end", 
+            "The quick brown fox jumps over the lazy dog.1234567890\n",
+            "$name$_"
+        );
+    }
 }
 
 # besiyata d'shmaya
