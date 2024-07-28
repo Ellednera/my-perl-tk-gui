@@ -73,7 +73,16 @@ $start_btn = $button_frame->Button(
     -state => "disabled"
 )->pack( -side => "left", -padx => 3 );
 
-
+# stop button
+my $stop_btn = $button_frame->Button(
+    -text => "Stop",
+    -command => sub {
+        $repeat_id->cancel();
+        $start_btn->configure( -state => "normal" );
+    }
+)->pack(
+    -side => "left", -padx => 3
+);
 
 MainLoop;
 
