@@ -50,9 +50,37 @@ my $text_display = $window->Entry(
     -expand => 1, -fill => "x", -side => "left"
 );
 ############################################
+$fonts_select->bind(
+    "<Button>",
+    sub {
+        $text_display->configure(
+            -font => "{". $fonts_select->get( $fonts_select->curselection ) ."} 80"
+        );
+    }
+);
+
+my $repeat_id = $window->repeat( 300, \&shift_banner );
+my $button_frame = $left_frame->Frame->pack( -side => "bottom", -fill => "y" );
+
+# start button
+my $start_btn;
+$start_btn = $button_frame->Button( 
+    -text => "Start",
+    -command => sub {
+        $repeat_id = $window->repeat( 300, \&shift_banner );
+        $start_btn->configure( -state => "disabled" );
+    },
+    -state => "disabled"
+)->pack( -side => "left", -padx => 3 );
+
 
 
 MainLoop;
+
+sub shift_banner {
+    ...
+}
+
 # beisyata d'shmaya
 
 
