@@ -39,6 +39,18 @@ $hiding_btn->configure(
     }, 
     -font => "FreeSerif 12"
 );
+############################################
+my $text_display = $window->Entry(
+    -textvariable => \$banner_text,
+    -width => 12, 
+    -font => "FreeMono 55", # default display font
+    -relief => "raised",
+    -highlightthickness => 0,
+)->pack(
+    -expand => 1, -fill => "x", -side => "left"
+);
+############################################
+
 
 MainLoop;
 # beisyata d'shmaya
