@@ -87,7 +87,7 @@ my $stop_btn = $button_frame->Button(
 MainLoop;
 
 sub shift_banner {
-    ...
+    $banner_text = substr( $banner_text, 1 ) . substr( $banner_text, 0, 1 );
 }
 
 # beisyata d'shmaya
