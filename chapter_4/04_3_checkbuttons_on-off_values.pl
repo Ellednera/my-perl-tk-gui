@@ -34,12 +34,17 @@ MainLoop;
 # this is working correctly, but something is wrong
 sub change_value {
     #print $_[0];
+    #$check_btn_value = undef;
     if ( $_[0] eq "on" ) {
+        print "turning on...\n";
         $check_btn->deselect(); # ???
+        #$check_btn_value = "hello"; # not working
     } else {
-        $check_btn->select(); # ???
+        print "turning off...\n";
+        $check_btn->select; # ???
+        #$check_btn_value = "bye"; # not working
     }
-    #$check_btn->toggle; # not working here
+    #$check_btn->toggle; # not working
     $check_btn->invoke();
 }
 
